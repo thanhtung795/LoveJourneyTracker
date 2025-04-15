@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gửi Em 💖</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Courier New", Courier, monospace;
+        background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      h1 {
+        color: #ff4081;
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #7b2cbf;
+        font-size: 1.2em;
+        text-align: center;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .hearts {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: pink;
+        transform: rotate(45deg);
+        animation: float 6s infinite ease-in;
+        opacity: 0.7;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: pink;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart::after {
+        left: -10px;
+        top: 0;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100%) rotate(45deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-100vh) rotate(45deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      style="width: 300px"
+      src="z6497993574350_4b24637d928f7fbbcd7b90122bd35137.jpg"
+      alt=""
+    />
+    <h1>Gửi người anh thương 💌</h1>
+    <p>
+      Cảm ơn em đã luôn ở bên anh. Em là điều ngọt ngào nhất mà anh từng có.
+      Mong mỗi ngày của em đều tràn ngập niềm vui như hôm nay! 💕
+    </p>
+
+    <div class="hearts"></div>
+
+    <script>
+      const hearts = document.querySelector(".hearts");
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+        hearts.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }, 300);
+    </script>
+  </body>
+</html>
